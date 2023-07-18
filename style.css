@@ -62,9 +62,9 @@ ul {
 }
 
 #portifolio ion-icon{
-  border-radius: 50%;
   transition: 0.5s;
   font-size: 24px;
+  padding-left: 16px;
 }
 
 ul li a {
