@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br" class="light">
+<html lang="pt-br">
   <head>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,26 +11,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Paulo Gabriel - Dev</title>
     <link rel="stylesheet" href="./style.css" />
-    <script type="text/javascript" src="js/backend.js"></script>
+    <script type="text/javascript" src="script.js"></script>
   </head>
   <body>
     <div id="container">
       <div id="profile">
-        <img
+        <div class="aura">
+          <img
           src="./assets/avatar.png"
-          alt="foto de Paulo Gabriel, homem pardo, de barba. "
+          alt="foto de Paulo Gabriel, homem pardo, de barba e cabelo bem aparados. "
         />
+          </div>
+        
         <p>Paulo Gabriel Neves Santos</p>
         <p>Software Developer</p>
         <p>Brasileiro, 27 anos, Sorocaba-SP</p>
       </div>
+
+      <div id="switch" onclick="toggleMode()">
+        <button></button>
+        <span></span>
+      </div>
+
       <ul>
         <li id="portifolio">
           <a href="https://github.com/AlienUrbano">Portifólio<ion-icon name="logo-github"></ion-icon></a>
         </li>
 
         <li>
-          <a href="mailto:paulogabrielneves@hotmail.com">Enviar um e-mail</a>
+          <a id="email" href="mailto:paulogabrielneves@hotmail.com">Enviar um e-mail</a>
         </li>
 
         <li>
@@ -50,7 +59,7 @@
         </a>
       </div>
     </div>
-    <script
+      <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
     ></script>
