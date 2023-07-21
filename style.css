@@ -21,8 +21,8 @@
   --aura-height: 112px;
   --aura-width: 112px;
   --aura-opacity: 0.5;
+  --bg-url-desktop: url(./assets/bg-desktop.jpg);
 }
-
 
 .light {
   --text-color: black;
@@ -36,14 +36,23 @@
   --aura-width: 112px;
   --avatar-url: url(./assets/avatar-light.png);
   --aura-opacity: 1;
+  --bg-url-desktop: url(./assets/bg-desktop-light.jpg);
 }
+
+/*@media (min-width: 769px) {
+  body {
+    background: var(--bg-url-desktop) no-repeat center center/cover;
+  }
+}
+
 body {
   background: var(--bg-url) no-repeat top center/cover;
 }
-
+*/
 body * {
   font-family: "Inter", sans-serif;
   color: var(--text-color);
+  background-size: cover;
 }
 
 #container {
@@ -78,11 +87,11 @@ body * {
   color: rgb(88 199 250 / 100%);
   transition: color 2s;
 }
-.aura:hover:before, .aura:hover:after {
+.aura:hover:before,
+.aura:hover:after {
   animation: none;
   opacity: 0;
 }
-
 
 .aura::before {
   content: "";
@@ -90,14 +99,17 @@ body * {
   height: 101%;
   border-radius: 50%;
   background-image: linear-gradient(
-    var(--rotate)
-    , #5ddcff, #3c67e3 43%, #4e00c2);
-    position: absolute;
-    z-index: -1;
-    top: -0.5%;
-    left: -0.5%;
-    animation: spin 2.5s linear infinite;
-    transition: opacity 2.5s;
+    var(--rotate),
+    #5ddcff,
+    #3c67e3 43%,
+    #4e00c2
+  );
+  position: absolute;
+  z-index: -1;
+  top: -0.5%;
+  left: -0.5%;
+  animation: spin 2.5s linear infinite;
+  transition: opacity 2.5s;
 }
 
 .aura::after {
@@ -113,9 +125,12 @@ body * {
   transform: scale(0.8);
   filter: blur(calc(var(--aura-height) / 4));
   background-image: linear-gradient(
-    var(--rotate)
-    , #5ddcff, #3c67e3 43%, #4e00c2);
-    opacity: var(--aura-opacity);
+    var(--rotate),
+    #5ddcff,
+    #3c67e3 43%,
+    #4e00c2
+  );
+  opacity: var(--aura-opacity);
   transition: opacity 2.5s;
   animation: spin 2.5s linear infinite;
 }
@@ -130,14 +145,39 @@ body * {
   font-weight: 500;
   line-height: 24px;
   margin-top: 8px;
+  transition: 0.3s ease;
 }
+
+#profile p:hover {
+  transform: scale(1.01);
+}
+
+/* Nova classe para o contêiner do carrossel */
+.tech-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto 0px auto; /* Ajuste a margem superior para posicionar abaixo dos parágrafos */
+  transform: scale(0.8); /* Ajuste o tamanho do ícone conforme necessário */
+  transition: transform 0.6s; /* Adicione uma transição suave para a escala */
+  width: 150px;
+  height: 50px;
+  fill: var(--surface-color);
+  background-size: cover;
+}
+
+/* Estilize o ícone central para ampliar */
+.tech-icons .slick-center {
+  transform: scale(1.01); /* Ajuste a escala do ícone central conforme necessário */
+}
+
 
 ul {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 24px 0;
+  padding: 0;
 }
 
 ul li a {
@@ -181,20 +221,25 @@ ul li a:hover {
   background: var(--highlight-color);
 }
 
-#portifolio ion-icon{
-  
+#portifolio ion-icon {
   transition: 0.5s;
   font-size: 24px;
   padding-left: 4px;
+  transition: transform 0.5s ease;
+}
+
+#portifolio ion-icon:hover {
+  transform: rotate(15deg); /* Ajuste o ângulo de rotação conforme desejado */
 }
 
 #switch {
   position: relative;
   width: 64px;
   margin: 4px auto;
+  margin-bottom: 20px;
 }
 
-#switch button{
+#switch button {
   width: 32px;
   height: 32px;
   background: white var(--switch-bg-url) no-repeat center;
@@ -206,14 +251,12 @@ ul li a:hover {
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
-
 }
 
 .light #switch button {
   right: 0;
   left: initial;
 }
-
 
 #switch span {
   display: block;
